@@ -210,6 +210,9 @@ export default function Portfolio() {
           method="POST"
           className="grid gap-4 w-full max-w-md"
         >
+          {/* hidden subject */}
+          <input type="hidden" name="_subject" value="New message from Portfolio Website" />
+
           <input
             type="text"
             name="name"
@@ -233,6 +236,19 @@ export default function Portfolio() {
           ></textarea>
           <Button type="submit" className="w-full">Send Message</Button>
         </form>
+
+        {/* WhatsApp button */}
+        <div className="mt-4 w-full max-w-md">
+          <Button asChild variant="outline" className="w-full">
+            <a
+              href="https://wa.me/918080603212" // replace with your number including country code
+              target="_blank"
+              rel="noreferrer"
+            >
+              Message me on WhatsApp
+            </a>
+          </Button>
+        </div>
       </section>
 
       {/* Footer */}
