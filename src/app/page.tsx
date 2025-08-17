@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Github, Linkedin, Download } from "lucide-react";
+import { Github, Linkedin, Download } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -70,7 +70,7 @@ const PROJECTS = [
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-slate-50 to-white text-slate-900">
-      
+
       {/* Navbar */}
       <header className="sticky top-0 z-40 backdrop-blur bg-white/70 border-b">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -89,7 +89,7 @@ export default function Portfolio() {
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-4 pt-12 md:pt-20 pb-10">
         <div className="grid md:grid-cols-12 gap-8 items-center">
-          
+
           {/* Text */}
           <motion.div
             initial={{ x: -50, opacity: 0 }}
@@ -108,20 +108,33 @@ export default function Portfolio() {
               <Button asChild>
                 <a href="#contact">Hire Me</a>
               </Button>
-            <Button asChild variant="outline">
-  <a
-    href="/resume/Sayali-Zambre-RESUME.pdf"
-    target="_blank" // open in new tab
-    rel="noopener noreferrer"
-  >
-    Download CV <Download className="ml-2 h-4 w-4" />
-  </a>
-</Button> 
 
+              {/* Mobile/Desktop-friendly CV download */}
+              <Button
+                variant="outline"
+                onClick={async () => {
+                  try {
+                    const res = await fetch("/resume/Sayali-Zambre-RESUME.pdf");
+                    const blob = await res.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = "Sayali-Zambre-RESUME.pdf";
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    window.URL.revokeObjectURL(url);
+                  } catch (err) {
+                    console.error("Failed to download CV:", err);
+                  }
+                }}
+              >
+                Download CV <Download className="ml-2 h-4 w-4" />
+              </Button>
             </div>
           </motion.div>
 
-          {/* Photo placeholder (unchanged) */}
+          {/* Photo */}
           <div className="md:col-span-5 flex justify-center">
             <img
               src="/path/to/your-photo.jpg"
@@ -188,7 +201,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Get in Touch */}
+      {/* Get in Touch / Contact */}
       <section id="contact" className="max-w-6xl mx-auto px-4 py-12 flex flex-col items-center text-center">
         <h2 className="text-2xl md:text-3xl font-semibold mb-6">Get in Touch</h2>
 
