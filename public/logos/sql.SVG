@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+<ellipse cx="64" cy="27" rx="50" ry="15" fill="#4479A1"></ellipse>
+<path fill="#4479A1" d="M14 27v74c0 8 22 15 50 15s50-7 50-15V27"></path>
+<path fill="#EEE" d="M64 77c-28 0-50-7-50-15v15c0 8 22 15 50 15s50-7 50-15V62c0 8-22 15-50 15z"></path>
+</svg>
