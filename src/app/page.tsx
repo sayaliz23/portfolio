@@ -83,7 +83,6 @@ export default function Portfolio() {
               <div className="text-xs text-slate-500">Frontend Developer</div>
             </div>
           </div>
-          
         </div>
       </header>
 
@@ -110,12 +109,15 @@ export default function Portfolio() {
                 <a href="#contact">Hire Me</a>
               </Button>
               <Button asChild variant="outline">
-                <a href="/resume/Sayali-Zambre-RESUME.pdf" download>Download CV</a>
+                {/* ✅ Resume download working */}
+                <a href="/resume/Sayali-Zambre-RESUME.pdf" download>
+                  Download CV <Download className="ml-2 h-4 w-4" />
+                </a>
               </Button>
             </div>
           </motion.div>
 
-          {/* Photo placeholder */}
+          {/* Photo placeholder (unchanged) */}
           <div className="md:col-span-5 flex justify-center">
             <img
               src="/path/to/your-photo.jpg"
@@ -210,7 +212,6 @@ export default function Portfolio() {
           method="POST"
           className="grid gap-4 w-full max-w-md"
         >
-          {/* hidden subject */}
           <input type="hidden" name="_subject" value="New message from Portfolio Website" />
 
           <input
@@ -241,7 +242,7 @@ export default function Portfolio() {
         <div className="mt-4 w-full max-w-md">
           <Button asChild variant="outline" className="w-full">
             <a
-              href="https://wa.me/918080603212" // replace with your number including country code
+              href="https://wa.me/918080603212"
               target="_blank"
               rel="noreferrer"
             >
