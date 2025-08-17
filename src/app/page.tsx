@@ -108,12 +108,16 @@ export default function Portfolio() {
               <Button asChild>
                 <a href="#contact">Hire Me</a>
               </Button>
-              <Button asChild variant="outline">
-                {/* ✅ Resume download working */}
-                <a href="/resume/Sayali-Zambre-RESUME.pdf" download>
-                  Download CV <Download className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
+            <Button asChild variant="outline">
+  <a
+    href="/resume/Sayali-Zambre-RESUME.pdf"
+    target="_blank" // open in new tab
+    rel="noopener noreferrer"
+  >
+    Download CV <Download className="ml-2 h-4 w-4" />
+  </a>
+</Button> 
+
             </div>
           </motion.div>
 
